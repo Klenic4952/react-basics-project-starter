@@ -12,11 +12,11 @@ export const RecipeListPage = ({clickFn}) => {
  //console.log(data.hits);
  
   return (
-    <div>
+    <Box bgColor="blue.100">
       <Box display="flex" justifyContent="center">
         <Heading margin="20">Your Recipe App</Heading>
       </Box>
-      <Container maxW="80%">
+      <Container maxW="85%">
         <SimpleGrid spacing="5" minChildWidth="300px">
         
           {recipes.map((recipe) => (
@@ -28,7 +28,7 @@ export const RecipeListPage = ({clickFn}) => {
           ))}
         </SimpleGrid>
       </Container>
-    </div>
+    </Box>
   );
 };
   
