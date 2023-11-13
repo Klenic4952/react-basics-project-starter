@@ -1,18 +1,36 @@
-import { useState } from 'react';
-import { RecipeListPage } from './pages/RecipeListPage';
-import { RecipePage } from './pages/RecipePage';
-
+import { useState } from "react";
+//import { RecipeListPage } from './pages/RecipeListPage';
+import { RecipePage } from "./pages/RecipePage";
+import { RecipeSearch } from "./components/RecipeSearch";
+import { Center, Container, Heading } from "@chakra-ui/react";
 
 export const App = () => {
   const [selectedRecipe, setSelectedRecipe] = useState();
+  const title = "Winc Recipe Checker";
 
   return (
-    <div>
+    <Container
+      backgroundColor="blue.100"
+      maxWidth="100vw"
+      minHeight="100vh"
+      textAlign="center"
+    >
       {selectedRecipe ? (
-          <RecipePage recipe={selectedRecipe} clickFn={setSelectedRecipe}/>
+        <RecipePage recipe={selectedRecipe} clickFn={setSelectedRecipe} />
       ) : (
-          <RecipeListPage clickFn={setSelectedRecipe}/>
+        <Center
+            pt="40px"
+            pb="80px"
+            display="flex"
+            flexDir="column"
+            justifyContent="center"
+          >
+          <Heading mb="25px">
+            {title}
+          </Heading>
+          <RecipeSearch clickFn={setSelectedRecipe} />
+        </Center>
       )}
-   </div>
+    </Container>
   );
 };
