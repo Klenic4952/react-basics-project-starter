@@ -1,26 +1,21 @@
-import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 import { RecipeCard } from "../components/RecipeCard";
-import { data } from "../utils/data";
+//import { data } from "../utils/data";
 
-export const RecipeListPage = ({ clickFn }) => {
-  const recipes = data.hits;
+export const RecipeListPage = ({ clickFn, recipes }) => {
+ // const recipes = data.hits;
 
   return (
-    <Box bgColor="blue.100">
-      <Box display="flex" justifyContent="center">
-        <Heading margin="20">Your Recipe App</Heading>
-      </Box>
-      <Container maxW="85%">
-        <SimpleGrid spacing="5" minChildWidth="300px">
-          {recipes.map((recipe) => (
-            <RecipeCard
-              clickFn={clickFn}
-              recipe={recipe}
-              key={recipe.recipe.url}
-            />
-          ))}
-        </SimpleGrid>
-      </Container>
-    </Box>
+    <Container maxW="85%">
+      <SimpleGrid spacing="5" minChildWidth="300px">
+        {recipes.map((recipe) => (
+          <RecipeCard
+            clickFn={clickFn}
+            recipe={recipe}
+            key={recipe.recipe.url}
+          />
+        ))}
+      </SimpleGrid>
+    </Container>
   );
 };
