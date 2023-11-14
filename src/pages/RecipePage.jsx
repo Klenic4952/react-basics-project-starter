@@ -23,7 +23,7 @@ export const RecipePage = ({ clickFn, recipe }) => {
         ml="auto"
         mr="auto"
       >
-        <Card bgColor="white">
+        <Card bgColor="white" userSelect="none">
           <CardBody padding="0">
             <Button
               display="flex"
@@ -31,6 +31,7 @@ export const RecipePage = ({ clickFn, recipe }) => {
               onClick={() => clickFn()}
               leftIcon={<ChevronLeftIcon boxSize={8} />}
               variant="flushed"
+              cursor="pointer"
             />
             <Image
               h="300px"
