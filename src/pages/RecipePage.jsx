@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Card,
   CardBody,
   Container,
@@ -9,12 +10,13 @@ import {
   SimpleGrid,
   Text,
 } from "@chakra-ui/react";
+import { ChevronLeftIcon } from "@chakra-ui/icons";
 import { Tag } from "../components/ui/Tag";
 
-export const RecipePage = ({ recipe }) => {
+export const RecipePage = ({ clickFn, recipe }) => {
   return (
     <Box bgColor="blue.100">
-      <Container     
+      <Container
         maxWidth={{ base: "95vw", sm: "80vw", md: "50vw" }}
         minHeight="100vh"
         padding="0px"
@@ -23,16 +25,22 @@ export const RecipePage = ({ recipe }) => {
       >
         <Card bgColor="white">
           <CardBody padding="0">
+            <Button
+              display="flex"
+              mt="5"
+              onClick={() => clickFn()}
+              leftIcon={<ChevronLeftIcon boxSize={8} />}
+              variant="flushed"
+            />
             <Image
               h="300px"
               w="full"
-              mt="10"
+              mt="2"
               objectFit="cover"
               src={recipe.recipe.image}
             />
-
             <SimpleGrid spacing="5" m="7" minChildWidth="75px">
-              <Box>
+              <Box ml={{ base: "0", lg: "15" }} textAlign="left">
                 <Text
                   fontSize={{ base: "12px", lg: "14px" }}
                   color="grey"
@@ -48,17 +56,23 @@ export const RecipePage = ({ recipe }) => {
                 >
                   {recipe.recipe.label}
                 </Heading>
-                <Flex gap="2" mt="3">
+                <Flex
+                  gap="2"
+                  mt="3"
+                  fontSize={{ base: "14px", lg: "16px" }}
+                  flexDirection={{ base: "column", lg: "row" }}
+                  lineHeight={{ base: ".5", lg: "1" }}
+                >
                   <Text>Total cooking time:</Text>
                   <Text fontWeight="medium">
                     {recipe.recipe.totalTime} minutes
                   </Text>
                 </Flex>
-                <Flex gap="2" mt=".5">
+                <Flex gap="2" mt="2" fontSize={{ base: "14px", lg: "16px" }}>
                   <Text>Servings:</Text>
                   <Text fontWeight="medium">{recipe.recipe.yield}</Text>
                 </Flex>
-                <Box mt="2">
+                <Box mt="2.5">
                   <Text
                     fontSize={{ base: "16px", lg: "18px" }}
                     fontWeight="semibold"
@@ -80,8 +94,8 @@ export const RecipePage = ({ recipe }) => {
                   })}
                 </Box>
               </Box>
-              <Box>
-                <Text>Health Labels:</Text>
+              <Box mr={{ base: "0", lg: "15" }} textAlign="left">
+                <Text mb="1.5">Health Labels:</Text>
                 <Box>
                   {recipe.recipe.healthLabels.map((label) => {
                     return (
@@ -91,7 +105,9 @@ export const RecipePage = ({ recipe }) => {
                     );
                   })}
                 </Box>
-                <Text mt="2">Diet:</Text>
+                <Text mt="2" mb="1.5">
+                  Diet:
+                </Text>
                 <Box>
                   {recipe.recipe.dietLabels.map((diet) => {
                     return (
@@ -101,7 +117,9 @@ export const RecipePage = ({ recipe }) => {
                     );
                   })}
                 </Box>
-                <Text>Cautions:</Text>
+                <Text mt="2" mb="1.5">
+                  Cautions:
+                </Text>
                 <Box>
                   {recipe.recipe.cautions.map((label) => {
                     return (
