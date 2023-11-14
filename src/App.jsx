@@ -1,5 +1,4 @@
 import { useState } from "react";
-//import { RecipeListPage } from './pages/RecipeListPage';
 import { RecipePage } from "./pages/RecipePage";
 import { RecipeSearch } from "./components/RecipeSearch";
 import { Center, Container, Heading } from "@chakra-ui/react";
@@ -19,15 +18,13 @@ export const App = () => {
         <RecipePage recipe={selectedRecipe} clickFn={setSelectedRecipe} />
       ) : (
         <Center
-            pt="40px"
-            pb="80px"
-            display="flex"
-            flexDir="column"
-            justifyContent="center"
-          >
-          <Heading mb="25px">
-            {title}
-          </Heading>
+          pt="40px"
+          pb="80px"
+          display="flex"
+          flexDir="column"
+          justifyContent="center"
+        >
+          <Heading mb="25px">{title}</Heading>
           <RecipeSearch clickFn={setSelectedRecipe} />
         </Center>
       )}
