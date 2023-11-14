@@ -14,14 +14,13 @@ export const RecipeSearch = ({ clickFn }) => {
       .includes(searchField.toLowerCase());
   });
 
-  
-  const handleChange = (event) => setSearchField(event.target.value);
+    const handleChange = (event) => setSearchField(event.target.value);
 
   return (
     <>
       <TextInput
         changeFn={handleChange}
-        w={450}
+        w= {{ base:"250px", lg: "450px"}}
         mb={8}
         placeholder="Search recipes"
         bgColor="white"
