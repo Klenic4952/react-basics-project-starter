@@ -5,7 +5,7 @@ import { Center, Container, Heading } from "@chakra-ui/react";
 
 export const App = () => {
   const [selectedRecipe, setSelectedRecipe] = useState();
-  const title = "Winc Recipe Checker";
+  const title = "Recipe Checker";
 
   return (
     <Container
